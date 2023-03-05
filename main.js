@@ -474,7 +474,7 @@ const app = {
         $('#view-play').onclick = e => {
             if(_this.isView) {
                 _this.isView = false;
-                $('#player').style.height = 25 + 'px';
+                $('#player').style.height = '25px';
                 private.style.marginBottom = '100px';
             }else {
                 _this.isView = true;

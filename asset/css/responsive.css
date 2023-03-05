@@ -57,6 +57,7 @@
         background-color: #130c1c;
         flex-direction: column;
         display: flex;
+        transition: height 0.7s ease;
     }
     
     #view-play {
@@ -121,10 +122,22 @@
     .-mobile {
         display: none;
     }
+    #player {
+        height: 90px !important;
+    }
+    .private {
+        margin-bottom: 100px !important;
+    }
 }
 
 @media (min-width: 1023px) {
     .-mobile {
         display: none;
+    }
+    #player {
+        height: 90px !important;
+    }
+    .private {
+        margin-bottom: 100px !important;
     }
 }
