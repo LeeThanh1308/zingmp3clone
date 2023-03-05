@@ -38,6 +38,7 @@ const app = {
     isPlaying: false,
     isRepeat: false,
     isRamdom: false,
+    isView: false,
     songs: [
 
         {
@@ -297,6 +298,7 @@ const app = {
             play.style.display = 'none';
             pause.style.display = 'block';
             getTitle.textContent = this.currentSong.name + " - " + this.currentSong.singer;
+
             _this.render();
             _this.scrollToActiveSong();
 
@@ -468,6 +470,18 @@ const app = {
             iterations: Infinity
         })
         imgPlayerAnimation.pause()
+
+        $('#view-play').onclick = e => {
+            if(_this.isView) {
+                _this.isView = false;
+                $('#player').style.height = 25 + 'px';
+                private.style.marginBottom = '100px';
+            }else {
+                _this.isView = true;
+                $('#player').style.height = 360 + 'px';
+                private.style.marginBottom = '380px';
+            }
+        }
     },
 
     scrollToActiveSong: function() {

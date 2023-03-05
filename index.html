@@ -8,6 +8,7 @@
     <link rel="icon" href="./asset/css/img/Untitled-1.png">
     <link rel="stylesheet" href="./asset/css/style.css">
     <link rel="stylesheet" href="./asset/css/fontawesome-free-6.3.0-web/css/all.css">
+    <link rel="stylesheet" href="./asset/css/responsive.css">
 </head>
 <body>
     <div id="main">
@@ -46,7 +47,7 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="text" placeholder="Tìm Kiếm bài hát, nghệ sĩ, lời bài hát...">
                     </div>
-                    <div class="header__option">
+                    <div class="header__option mbnone">
                         <div><i class="fa-solid fa-torii-gate"></i></div>
                         <div><i class="fa-sharp fa-regular fa-gem"></i></div>
                         <div><i class="fa-solid fa-gear"></i></div>
@@ -59,7 +60,7 @@
                         <div class="private">
                             <div class="info-songs">
                                 <h2>BÀI HÁT</h2>
-                                <h2>ALBUM</h2>
+                                <h2 class="mbnone">ALBUM</h2>
                                 <h2>THỜI GIAN</h2>
                             </div>
 
@@ -85,9 +86,11 @@
         </div>
         <div id="player">
             <div class="player__img">
-                <img id="imgPlayer" src="" alt="" width="75px" height="75px" style="border-radius: 50%">
+                <div id="view-play"></div>
+                <img id="imgPlayer" class="" src="" alt="" width="75px" height="75px" style="border-radius: 50%">
                 <div class="info">
                     <h4 class="info-song"></h4>
+                    <p class="-mobile">&nbsp;-&nbsp;</p>
                     <p class="info-singer"></p>
                 </div>
             </div>
@@ -126,15 +129,15 @@
             </div>
             <div class="nav-option">
                 <div class="option-volue">
-                    <i class="fa-solid fa-microphone-lines"></i>
-                    <i class="fa-regular fa-window-restore"></i>
+                    <i class="fa-solid fa-microphone-lines mbnone"></i>
+                    <i class="fa-regular fa-window-restore mbnone"></i>
                     <i id="volume-max" class="fa-solid fa-volume-high"></i>
                     <i id="volume-min" class="fa-solid fa-volume-xmark"></i>
                     <div id="box-volume">
                         <div id="voloume-move"></div>
                         <input id="input-volume" type="range" value="1" min="0" max="1" step="0.1">
                     </div>
-                    <div class="foder">
+                    <div class="foder mbnone">
                         <i class="fa-regular fa-folder-closed"></i>
                     </div>
                 </div>
