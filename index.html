@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zing MP3 Clone</title>
+    <link rel="icon" href="./asset/css/img/Untitled-1.png">
+    <link rel="stylesheet" href="./asset/css/style.css">
+    <link rel="stylesheet" href="./asset/css/fontawesome-free-6.3.0-web/css/all.css">
+</head>
+<body>
+    <div id="main">
+        <div id="main__container">
+            <div id="navbar">
+                <div class="navbar__lm">
+                    <div class="navbar__logo">
+                        <img src="./asset/css/img/zingmp3-logo-0D5EB40D13-seeklogo.com.png" alt="" width="120px" height="40px">
+                    </div>
+                    <div class="navbar__menu">
+                        <nav>
+                            <ul class="box-menu-li">
+                                <li class="menu-li active_nav"><i class="fa-solid fa-music"></i>Cá Nhân</li>
+                                <li class="menu-li"><i class="fa-regular fa-circle-dot"></i>Khám Phá</li>
+                                <li class="menu-li"><i class="fa-solid fa-arrow-trend-up"></i>#zingchart</li>
+                                <li class="menu-li"><i class="fa-solid fa-radio"></i>Radio</li>
+                                <li class="menu-li"><i class="fa-regular fa-address-book"></i>Theo Dõi</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- <div class="navbar__menu-sup">
+                    <nav>
+                        <ul>
+                            <li><i class="fa-solid fa-music"></i>Nhạc mới</li>
+                            <li><i class="fa-solid fa-icons"></i>Thể Loại</li>
+                            <li><i class="fa-solid fa-star"></i>Top 100</li>
+                            <li><i class="fa-regular fa-snowflake"></i>MV</li>
+                        </ul>
+                    </nav>
+                </div> -->
+            </div>
+            <div id="content">
+                <div id="header">
+                    <div class="header__search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Tìm Kiếm bài hát, nghệ sĩ, lời bài hát...">
+                    </div>
+                    <div class="header__option">
+                        <div><i class="fa-solid fa-torii-gate"></i></div>
+                        <div><i class="fa-sharp fa-regular fa-gem"></i></div>
+                        <div><i class="fa-solid fa-gear"></i></div>
+                        <div><img src="./asset/css/img/IMG_2021-06-18-19-15-13-387.jpg" alt="" width="100%" height="100%" style="border-radius: 50%;"></div>
+                    </div>
+                </div>
+                <div class="background"><img src="./asset/css/img/291045496_174778531677228_8068727388908330746_n.jpg" alt=""></div>
+                <div class="content__container">
+                    <div class="box-content">
+                        <div class="private">
+                            <div class="info-songs">
+                                <h2>BÀI HÁT</h2>
+                                <h2>ALBUM</h2>
+                                <h2>THỜI GIAN</h2>
+                            </div>
+
+                            <div id="box-songs">
+                            </div>
+                        </div>
+    
+                        <div class="discover">
+                            <h1>#Khám Phá</h1>
+                        </div>
+                        <div class="popular">
+                            <h1>#Zingchart</h1>
+                        </div>
+                        <div class="radio">
+                            <h1>#Radio</h1>
+                        </div>
+                        <div class="follow">
+                            <h1>#Theo Dõi</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="player">
+            <div class="player__img">
+                <img id="imgPlayer" src="" alt="" width="75px" height="75px" style="border-radius: 50%">
+                <div class="info">
+                    <h4 class="info-song"></h4>
+                    <p class="info-singer"></p>
+                </div>
+            </div>
+            <div class="nav__remote">
+                <div class="remote-audio">
+                    <div class="playRamdom">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </div>
+                    <div class="nextLeft">
+                        <i class="fa-solid fa-backward-step"></i>
+                    </div>
+                    <div class="playpause">
+                        <div id="play"><i class="fa-solid fa-circle-play"></i></div>
+                        <div id="pause"><i class="fa-solid fa-circle-pause"></i></div>
+                    </div>
+                    <div class="nextRight">
+                        <i class="fa-solid fa-forward-step"></i>
+                    </div>
+                    <div class="audioRepeat">
+                        <i class="fa-solid fa-repeat"></i>
+                    </div>
+                </div>
+                <div class="remote-input">
+                    <div class="input-box">
+                        <div id="time-current">00:00</div>
+                            <div id="input-update">
+                                <div class="box-ascending">
+                                    <div class="ascending-content">
+                                    </div>
+                                </div>
+                            </div>
+                        <div id="time-duration">00:00</div>
+                    </div>
+                    <audio id="audio" src=""></audio>
+                </div>
+            </div>
+            <div class="nav-option">
+                <div class="option-volue">
+                    <i class="fa-solid fa-microphone-lines"></i>
+                    <i class="fa-regular fa-window-restore"></i>
+                    <i id="volume-max" class="fa-solid fa-volume-high"></i>
+                    <i id="volume-min" class="fa-solid fa-volume-xmark"></i>
+                    <div id="box-volume">
+                        <div id="voloume-move"></div>
+                        <input id="input-volume" type="range" value="1" min="0" max="1" step="0.1">
+                    </div>
+                    <div class="foder">
+                        <i class="fa-regular fa-folder-closed"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+</html>
