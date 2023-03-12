@@ -39,6 +39,7 @@ const app = {
     isRepeat: false,
     isRamdom: false,
     isView: false,
+    isRender: false,
     songs: [
 
         {
@@ -211,12 +212,13 @@ const app = {
                 <div class="list-time">
                     <h2><i class="fa-solid fa-heart"></i></h2>
                     <span class="info-duration">00:00</span>
-                    <audio class="audio" src="${song.path}"></audio>
+                    <audio class="audio"  src="${song.path}"></audio>
                 </div>
             </div>
             `
         });
         boxSong.innerHTML = htmls.join('');
+        this.isRender = true;
 
         function formatTime(sec_num) {
             let hours = Math.floor(sec_num / 3600);
@@ -233,23 +235,12 @@ const app = {
             }
             return (hours !== 0 ? hours + ':' : '') + minutes + ':' + seconds;
         }
-
         const getAudio = $$('.audio');
         $$('.info-duration').forEach((elem, index) => {
             getAudio[index].onloadedmetadata = () => {
                 elem.textContent = formatTime(getAudio[index].duration);
             };
-        });
-        audio.onloadedmetadata = () => {
-            timeDuration.textContent = formatTime(audio.duration);
-        }
-        audio.ontimeupdate = () => {
-            timeCurrent.textContent = formatTime(audio.currentTime);
-            if(audio.duration) {
-                const progressPercent = Math.floor(audio.currentTime / audio.duration * 100)
-                playhead.style.width = progressPercent + '%';
-            }
-        }
+        });        
     },
 
     defineProperties: function() {
@@ -280,16 +271,30 @@ const app = {
             return (hours !== 0 ? hours + ':' : '') + minutes + ':' + seconds;
         }
 
+        audio.ontimeupdate = () => {
+            timeCurrent.textContent = formatTime(audio.currentTime);
+            if(audio.duration) {
+                const progressPercent = Math.floor(audio.currentTime / audio.duration * 100)
+                playhead.style.width = progressPercent + '%';
+            }
+        }
+
+        audio.onloadedmetadata = () => {
+            timeDuration.textContent = formatTime(audio.duration);
+        }
+
         play.onclick = function() {
             play.style.display = 'none';
             pause.style.display = 'block';
             audio.play();
+
         }
 
         pause.onclick = function() {
             audio.pause();
             pause.style.display = 'none';
             play.style.display = 'block';
+
         }
 
         audio.onplay = () => {
@@ -298,17 +303,17 @@ const app = {
             play.style.display = 'none';
             pause.style.display = 'block';
             getTitle.textContent = this.currentSong.name + " - " + this.currentSong.singer;
-
-            _this.render();
+            document.querySelector('.listsongs.active-song').classList.remove('active-song');
+            boxSong.children[_this.currentIndex].classList.add('active-song');
             _this.scrollToActiveSong();
-
         }
         audio.onpause = () => {
             _this.isPlaying = !_this.isPlaying;
             imgPlayerAnimation.pause();
             pause.style.display = 'none';
             play.style.display = 'block';
-            _this.render();
+            document.querySelector('.listsongs.active-song').classList.remove('active-song');
+            boxSong.children[_this.currentIndex].classList.add('active-song');
             _this.scrollToActiveSong();
         }
 
@@ -321,7 +326,8 @@ const app = {
                 _this.nextSong();
                 audio.play();
             }
-            
+            document.querySelector('.listsongs.active-song').classList.remove('active-song');
+            boxSong.children[_this.currentIndex].classList.add('active-song');
         }
         // Lắng nghe hành vi click prev audio
         nextLeft.onclick = function () {
@@ -332,6 +338,8 @@ const app = {
                 _this.prevSong();
                 audio.play();
             }
+            document.querySelector('.listsongs.active-song').classList.remove('active-song');
+            boxSong.children[_this.currentIndex].classList.add('active-song');
         }
 
         audio.onended = function () {
@@ -349,6 +357,8 @@ const app = {
                 pause.style.display = 'none';
                 play.style.display = 'block';
             }
+            document.querySelector('.listsongs.active-song').classList.remove('active-song');
+            boxSong.children[_this.currentIndex].classList.add('active-song');
             audio.play();
         }
 
@@ -482,6 +492,27 @@ const app = {
                 private.style.marginBottom = '380px';
             }
         }
+
+        //Lắng nghe khi ấn nút bàn phím play pause next prev
+        document.addEventListener('keydown', function(event) {
+                event.preventDefault();
+                // console.log(event.key)
+            if(event.key === " ") {
+                if(_this.isPlaying === false) {
+                    audio.play();
+                }else if(_this.isPlaying === true) {
+                    audio.pause();
+                }
+            }else if(event.key === "ArrowRight") {
+                _this.isPlaying = false;
+                _this.nextSong();
+                audio.play();
+            }else if(event.key === "ArrowLeft") {
+                _this.isPlaying = false;
+                _this.prevSong();
+                audio.play();
+            }
+        });
     },
 
     scrollToActiveSong: function() {
@@ -495,6 +526,7 @@ const app = {
         infoSinger.textContent = this.currentSong.singer;
         imgPlayer.src = this.currentSong.image;
         audio.src = this.currentSong.path;
+        // $('#background-image').src = this.currentSong.image;
     },
 
     nextSong: function() {
@@ -519,13 +551,12 @@ const app = {
     repeatSong: function() {
         this.currentIndex = this.currentIndex;
     },
-
+        
     ramdomSong: function() {
         let newIndex;
         do {
             newIndex = Math.floor(Math.random() * this.songs.length);
         } while(newIndex === this.currentIndex);
-
         this.currentIndex = newIndex;
         this.loadCurrentSong();
     },
@@ -539,3 +570,16 @@ const app = {
 }
 
 app.start()
+
+
+function onAds() {
+    $('#box-ads').style.display = 'flex';
+    $('#video').play();
+    audio.pause();
+    setTimeout( () => {
+        $('#box-ads').style.display = 'none';
+        $('#video').pause();
+        audio.play();
+    }, 15000)
+}
+

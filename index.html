@@ -30,7 +30,7 @@
                         </nav>
                     </div>
                 </div>
-                <!-- <div class="navbar__menu-sup">
+                <div class="navbar__menu-sup" onclick="onAds()">
                     <nav>
                         <ul>
                             <li><i class="fa-solid fa-music"></i>Nhạc mới</li>
@@ -39,22 +39,29 @@
                             <li><i class="fa-regular fa-snowflake"></i>MV</li>
                         </ul>
                     </nav>
-                </div> -->
+                    <div class="menu-sup__box" onclick="onAds()">
+                        <div>
+                            <p>Kết Thúc Cũng Là Nơi Bắt Đầu</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="content">
                 <div id="header">
                     <div class="header__search">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="Tìm Kiếm bài hát, nghệ sĩ, lời bài hát...">
+                        <form action="#" id="form-submit" onreset="onAds()">
+                            <button type="reset"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <input required type="text" placeholder="Tìm Kiếm bài hát, nghệ sĩ, lời bài hát...">
+                        </form>
                     </div>
                     <div class="header__option mbnone">
-                        <div><i class="fa-solid fa-torii-gate"></i></div>
-                        <div><i class="fa-sharp fa-regular fa-gem"></i></div>
-                        <div><i class="fa-solid fa-gear"></i></div>
-                        <div><img src="./asset/css/img/IMG_2021-06-18-19-15-13-387.jpg" alt="" width="100%" height="100%" style="border-radius: 50%;"></div>
+                        <div  onclick="onAds()"><i class="fa-solid fa-torii-gate"></i></div>
+                        <div  onclick="onAds()"><i class="fa-sharp fa-regular fa-gem"></i></div>
+                        <div  onclick="onAds()"><i class="fa-solid fa-gear"></i></div>
+                        <div  onclick="onAds()"><img src="./asset/css/img/IMG_2021-06-18-19-15-13-387.jpg" alt="" width="100%" height="100%" style="border-radius: 50%;"></div>
                     </div>
                 </div>
-                <div class="background"><img src="./asset/css/img/291045496_174778531677228_8068727388908330746_n.jpg" alt=""></div>
+                <div class="background"><img id="background-image" src="./asset/css/img/291045496_174778531677228_8068727388908330746_n.jpg" alt="" width="100%" height="100%"></div>
                 <div class="content__container">
                     <div class="box-content">
                         <div class="private">
@@ -129,19 +136,25 @@
             </div>
             <div class="nav-option">
                 <div class="option-volue">
-                    <i class="fa-solid fa-microphone-lines mbnone"></i>
-                    <i class="fa-regular fa-window-restore mbnone"></i>
+                    <i class="fa-solid fa-microphone-lines mbnone" onclick="onAds()"></i>
+                    <i class="fa-regular fa-window-restore mbnone" onclick="onAds()"></i>
                     <i id="volume-max" class="fa-solid fa-volume-high"></i>
                     <i id="volume-min" class="fa-solid fa-volume-xmark"></i>
                     <div id="box-volume">
                         <div id="voloume-move"></div>
                         <input id="input-volume" type="range" value="1" min="0" max="1" step="0.1">
                     </div>
-                    <div class="foder mbnone">
+                    <div class="foder mbnone" onclick="onAds()">
                         <i class="fa-regular fa-folder-closed"></i>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="box-ads">
+        <div class="box-item">
+            <video id="video" src="./asset/video/y2mate.com - ôi dời ơi không có đâu  tiến bịp _360p.mp4" width="100%" height="100%">
+            </video>
         </div>
     </div>
 

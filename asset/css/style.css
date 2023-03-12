@@ -9,7 +9,17 @@
 }
 
 body::-webkit-scrollbar {
-    width: 0;
+    width: 4px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #000;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgb(237, 17, 124);
+    outline: 1px solid slategrey;
 }
 
 html, body {
@@ -17,7 +27,7 @@ html, body {
     height: 100%;
 }
 
-
+  
 #main {
     width: 100%;
 }
@@ -80,6 +90,11 @@ html, body {
     height: 40px;
     border-radius: 20px;
     width: 100%;
+
+}
+
+.header__search button {
+    border: none;
 }
 
 .header__search i {
@@ -88,10 +103,11 @@ html, body {
     padding: 9px;
     margin-right: 8px;
     border-radius: 50%;
-    /* background-color: #fff; */
+    background-color: #fff;
+    top: 4px;
 }
 
-.header__search i:hover {
+.header__search i {
     opacity: 0.5;
 }
 
@@ -101,7 +117,14 @@ html, body {
     outline: none;
     height: 34px;
     border: none;
-    width: 85%;
+    width: 400px;
+    color: #ccc;
+}
+
+#form-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header__option div{
@@ -162,6 +185,10 @@ html, body {
     font-size: 14px;
 }
 
+.navbar__menu {
+    margin-bottom: 12px;
+}
+
 .navbar__menu-sup {
     background-color: #231b2e;
 }
@@ -169,12 +196,18 @@ html, body {
 .navbar__menu-sup ul li,
 .navbar__menu ul li{
     padding: 9px 25px;
+    cursor: pointer;
 }
 
 .navbar__menu ul {
     margin-bottom: 15px;
 }
 
+.navbar__menu-sup li:hover,
+.box-menu-li > li:hover {
+    opacity: 0.8;
+    background-color: #3a3344;
+}
 
 
 .navbar__menu i {
@@ -190,17 +223,31 @@ html, body {
 
 
 .navbar__menu-sup {
+    width: 240px;
+    height: 250px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: grid;
+    justify-content: center;
+    align-items: center;
 }
 
-.QC {
-    background-image: linear-gradient(117deg,#5a4be7,#c86dd7 102%);
-    border-radius: 8px;
-    text-align: center;
-    min-height: 100px;
-    width: 200px;
-    margin: 8px auto;
+.navbar__menu-sup:hover {
+    overflow-y: scroll;
 }
 
+.navbar__menu-sup:hover::-webkit-scrollbar {
+    width: 2px;
+}
+
+.navbar__menu-sup::-webkit-scrollbar-track {
+    background-color: rgb(255, 251, 0);
+}
+
+.navbar__menu-sup::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgb(237, 17, 124);
+}
 
 .navbar__menu-sup > nav h4 {
     padding: 9px 25px;
@@ -488,4 +535,53 @@ html, body {
     text-align: center;
     border-radius: 0 0 8px 8px;
     box-shadow: 1px 2px 1px #000;
+}
+
+.menu-sup__box {
+    width: 200px;
+    min-height: 100px;
+    padding: 15px 8px;
+    border-radius: 8px;
+    margin: 10px 20px;
+    text-align: center;
+    background-image: linear-gradient(117deg,#5a4be7,#c86dd7 102%);
+}
+
+#box-ads {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    position: fixed;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 10000;
+    background-color: rgb(0, 0, 0, 0.6);
+    display: none;
+    animation: boxads 3s linear;
+}
+
+@keyframes boxads {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.box-item {
+    width: 650px;
+    height: 500px;
+    background-color: #fff;
+    margin: auto;
+    display: block;
+    z-index: 12000;
+    border-radius: 4px;
+}
+
+#background-image {
+    background-repeat: repeat;
 }
