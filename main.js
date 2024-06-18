@@ -576,13 +576,5 @@ app.start()
 
 
 function onAds() {
-  $('#box-ads').style.display = 'flex';
-  $('#video').play();
-  audio.pause();
-  setTimeout(() => {
-    $('#box-ads').style.display = 'none';
-    $('#video').pause();
-    audio.play();
-  }, 15000)
 }
 
